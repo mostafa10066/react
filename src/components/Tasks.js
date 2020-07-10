@@ -51,8 +51,8 @@ class Tasks extends Component {
        const task=this.state.items.map((item,key)=>
        {
             return (
-                <div className="task">
-                    <p key={ key } className="list"><Link  to={{ pathname:'/task', taskProp:{ item }}} className="nav-link"> {item.subject } </Link> </p>
+                <div key={ key } className="task">
+                    <p  className="list"><Link  to={{ pathname:'/task', taskProp:{ item }}} className="nav-link"> {item.subject } </Link> </p>
                     <p>{ item.fälligAm}</p>
                     <span><FontAwesomeIcon className="trash" icon="trash" onClick={ ()=>this.deleteItem(key)} /></span>
                 </div>
