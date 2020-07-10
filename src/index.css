@@ -1,13 +1,66 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*{
+  box-sizing: border-box;
 }
+html,body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 
+}
+.container{
+  width: 80%;
+  display: flex;
+  margin: auto;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -ms-border-radius: 5px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.12);
+  -moz-box-shadow: 0 1px 8px rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0 1px 8px rgba(0,0,0,0.12);
+  transition: .3s box-shadow;
+  -moz-transition: .3s box-shadow;
+  -webkit-transition: .3s box-shadow;
+  margin-top: 2rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+}
+select{
+  display: flex;
+  width: 70%;
+  align-items: center;
+  align-self: center;
+  padding: .4rem 0;
+  margin-top: 2rem;
+
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.task{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -ms-border-radius: 5px;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.12);
+  -moz-box-shadow: 0 1px 8px rgba(0,0,0,0.12);
+  -webkit-box-shadow: 0 1px 8px rgba(0,0,0,0.12);
+  transition: .3s box-shadow;
+  -moz-transition: .3s box-shadow;
+  -webkit-transition: .3s box-shadow;
+  justify-content: space-between;
+  padding: 1rem;
+}
+a{
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
 }
