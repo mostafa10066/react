@@ -29,16 +29,25 @@ html,body {
 }
 select{
   display: flex;
-  width: 70%;
   align-items: center;
   align-self: center;
   padding: .4rem 0;
-  margin-top: 2rem;
+  flex: 2;
 
+}
+input{
+  flex: 2;
+  padding: .4rem 0;
+  margin-left: .4rem;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.filter{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
 }
 .task{
   display: flex;
@@ -63,4 +72,7 @@ a{
   font-size: 1.5rem;
   font-weight: bold;
   color: black;
+}
+.task span{
+  cursor: pointer;
 }

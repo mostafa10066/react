@@ -7,6 +7,7 @@ class Tasks extends Component {
     constructor(props){
         super(props)
         this.state={
+            keyword:'',
             tasks:[
                 {
                     id:1,subject:'first',completed:true,fälligAm:'2020-12-5'
@@ -18,29 +19,32 @@ class Tasks extends Component {
             items:[]
         }
         this.state.items=this.state.tasks;
-        this.dateFilter = this.dateFilter.bind(this);
+        this.search = this.search.bind(this);
     }
     deleteItem(id){
         const items = this.state.items;
         items.splice(id, 1);
         this.setState({ items });
     }
-    dateFilter(event){
-        this.state.items=this.state.tasks;
-        if( event.target.value!=0){
+    search=(e)=>{
+        var filterVal=document.getElementById('date').value
+        var search=document.getElementById('search').value
+        var filterItems=this.state.tasks;
+        if(search!=''){
+            filterItems =  filterItems.filter((item)=> {
+                       return item.subject.includes(search);
+            });
 
-            this.setState({
-                items: this.state.items.filter(function(item) {
-                    return item.fälligAm == event.target.value;
-                })
+        }
+        if(filterVal!=0){
+            filterItems =  filterItems.filter((item)=> {
+                return item.fälligAm == filterVal;
             });
         }
-        else{
-            this.setState({
-                items: this.state.tasks
+        this.setState({
+                    items: filterItems
+        });
 
-            });
-        }
 
     }
     render() {
@@ -56,11 +60,14 @@ class Tasks extends Component {
         })
         return(
             <div className="container">
-                <select value={this.state.value} onChange={this.dateFilter} name="" id="">
-                    <option value="0">select date</option>
-                    <option value="2020-12-5">2020-12-5</option>
-                    <option value="2020-12-6">2020-12-6</option>
-                </select>
+                <input placeholder="search"  onKeyUp={ this.search } id="search"  type="text" className="search"/>
+                <div className="filter">
+                    <select  value={ this.state.value }  onChange={this.search} name="" id="date">
+                        <option value="0">select date</option>
+                        <option value="2020-12-5">2020-12-5</option>
+                        <option value="2020-12-6">2020-12-6</option>
+                    </select>
+                </div>
                 { task }
             </div>
         )
