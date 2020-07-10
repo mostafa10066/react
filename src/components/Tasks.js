@@ -10,10 +10,10 @@ class Tasks extends Component {
             keyword:'',
             tasks:[
                 {
-                    id:1,subject:'first',completed:true,fälligAm:'2020-12-5'
+                    id:1,subject:'first',completed:true,fälligAm:'2020-07-08'
                 },
                 {
-                    id:2,subject:'second',completed:true,fälligAm:'2020-12-6'
+                    id:2,subject:'second',completed:true,fälligAm:'2020-07-09'
                 },
             ],
             items:[]
@@ -44,8 +44,6 @@ class Tasks extends Component {
         this.setState({
                     items: filterItems
         });
-
-
     }
     render() {
        const task=this.state.items.map((item,key)=>
@@ -60,13 +58,9 @@ class Tasks extends Component {
         })
         return(
             <div className="container">
-                <input placeholder="search"  onKeyUp={ this.search } id="search"  type="text" className="search"/>
                 <div className="filter">
-                    <select  value={ this.state.value }  onChange={this.search} name="" id="date">
-                        <option value="0">select date</option>
-                        <option value="2020-12-5">2020-12-5</option>
-                        <option value="2020-12-6">2020-12-6</option>
-                    </select>
+                    <input placeholder="search"  onKeyUp={ this.search } id="search"  type="text" className="search"/>
+                    <input   onChange={this.search} type="date" id="date"/>
                 </div>
                 { task }
             </div>
