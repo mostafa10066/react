@@ -5,8 +5,10 @@ import Tasks from './components/Tasks'
 import Task from './components/Task'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {faTrash} from '@fortawesome/free-solid-svg-icons'
+import {faEdit} from '@fortawesome/free-solid-svg-icons'
 import { BrowserRouter as Router,Switch, Route } from 'react-router-dom'
 library.add(faTrash)
+library.add(faEdit)
 function App() {
   return (
       <Router>

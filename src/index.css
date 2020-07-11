@@ -49,6 +49,9 @@ code {
   justify-content: space-between;
   margin-top: 2rem;
 }
+.d-flex{
+  justify-content: center;
+}
 .task{
   display: flex;
   justify-content: center;
@@ -69,9 +72,19 @@ code {
 }
 a{
   text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;
   color: black;
+}
+input{
+  padding: .5rem;
+}
+.icon{
+  cursor: pointer;
+}
+.operation{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
 }
 .task span{
   cursor: pointer;

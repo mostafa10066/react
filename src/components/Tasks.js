@@ -73,21 +73,20 @@ class Tasks extends Component {
                <tr key={ key }>
                    <td>
                        <div className="d-flex align-items-center">
-                           <div className="m-r-10"><a className="btn btn-circle btn-info text-white">EA</a></div>
                            <div className="">
-                               <h4 className="m-b-0 font-16"><Link  to={{ pathname:`/task/${item.subject}`, state: { item:item } }} className="nav-link"> {item.subject } </Link> </h4>
+                               <h6 className="m-b-0 font-16 subject"><Link  to={{ pathname:`/task/${item.subject}`, state: { item:item } }} className="nav-link"> {item.subject } </Link> </h6>
                            </div>
                        </div>
                    </td>
                    <td>{ item.fälligAm}</td>
-                   <td>John Doe</td>
+                   <td>{ item.business_partner}</td>
                    <td>
-                       <label className="label label-danger">Angular</label>
+                       <label className="">{ item.task }</label>
                    </td>
-                   <td>46</td>
-                   <td>356</td>
-                   <td>
-                       <h5 className="m-b-0"><FontAwesomeIcon className="trash" icon="trash" onClick={ ()=>this.deleteItem(key)} /></h5>
+                   <td>{ item.address }</td>
+                   <td className="operation">
+                       <h5 className="m-b-0"><FontAwesomeIcon className="trash icon" icon="trash" onClick={ ()=>this.deleteItem(key)} /></h5>
+                       <h5 className="m-b-0"><FontAwesomeIcon className="edit icon" icon="edit"  /></h5>
                    </td>
                </tr>
             );
@@ -103,11 +102,10 @@ class Tasks extends Component {
                     <tr className="bg-light">
                         <th className="border-top-0">Subject</th>
                         <th className="border-top-0">Fällig am</th>
-                        <th className="border-top-0">Operation</th>
-                        <th className="border-top-0">Technology</th>
-                        <th className="border-top-0">Tickets</th>
-                        <th className="border-top-0">Sales</th>
-                        <th className="border-top-0">Operation</th>
+                        <th className="border-top-0">Geschaftspartner</th>
+                        <th className="border-top-0">Aufgabenart</th>
+                        <th className="border-top-0">Adressat</th>
+                        <th className="border-top-0">Aktionen</th>
                     </tr>
                     </thead>
                     <tbody>
