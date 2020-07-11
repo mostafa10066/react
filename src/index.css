@@ -74,6 +74,16 @@ a{
   text-decoration: none;
   color: black;
 }
+table.table td{
+  vertical-align: middle;
+}
+.user-pic{
+
+}
+.user-profile.d-flex{
+  align-items: center;
+  justify-content: space-evenly;
+}
 input{
   padding: .5rem;
 }

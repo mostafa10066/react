@@ -29,9 +29,9 @@ function App() {
 
                             <span className="logo-text">
 
-                                <img src="../../assets/images/logo-text.png" alt="homepage" className="dark-logo"/>
+                                <img src={process.env.PUBLIC_URL + '/images/logo-icon.png'} alt="homepage" className="dark-logo"/>
 
-                                <img src="../../assets/images/logo-light-text.png" className="light-logo"
+                                <img src={process.env.PUBLIC_URL + '/images/logo-light-icon.png'} className="light-logo"
                                      alt="homepage"/>
                         </span>
                         </a>
