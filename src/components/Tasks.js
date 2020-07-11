@@ -27,27 +27,7 @@ class Tasks extends Component {
         items.splice(id, 1);
         this.setState({ items });
     }
-    // updateFilter(event){
-    //     console.log(event)
-    //     //this.setState({ keyword: value}, this.search);
-    // }
     search=(e)=>{
-        //this.setState({keyword:e.target.value});
-        // this.setState({
-        //     keyword: document.getElementById('search').value,
-        //     date:document.getElementById('date').value
-        // });
-        // console.log(this.state.keyword)
-        //this.setState({keyword: e.target.value});
-
-        // this.setState((state,key) => {
-        //     // Important: read `state` instead of `this.state` when updating.
-        //     // return {keyword: e.target.value}
-        //     console.log(key)
-        // });
-        //
-        // console.log(this.state.keyword)
-
         var filterVal=document.getElementById('date').value
         var search=document.getElementById('search').value
         var filterItems=this.state.tasks;
