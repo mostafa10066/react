@@ -7,8 +7,11 @@ class Tasks extends Component {
     constructor(props){
         super(props)
         this.state={
-            keyword:'',
-            date:'',
+            form:{
+                keyword:'',
+                date:'',
+            },
+
             tasks:[
                 {
                     id:1,subject:'first',completed:true,fälligAm:'2020-07-08',business_partner:'Jack Doe',task:'example',address:'zelbach'
@@ -20,16 +23,21 @@ class Tasks extends Component {
             items:[]
         }
         this.state.items=this.state.tasks;
-        this.search = this.search.bind(this);
     }
     deleteItem(id){
         const items = this.state.items;
         items.splice(id, 1);
         this.setState({ items });
     }
-    search=(e)=>{
-        var filterVal=document.getElementById('date').value
-        var search=document.getElementById('search').value
+    formValue=(e)=>{
+        e.persist();
+        this.setState((prevState) => ({
+            form: { ...prevState.form,  [e.target.name]: e.target.value },
+        }),this.search)
+    }
+    search=()=>{
+         let filterVal=this.state.form.date
+         let search=this.state.form.keyword
         var filterItems=this.state.tasks;
         if(search!=''){
             filterItems =  filterItems.filter((item)=> {
@@ -51,31 +59,48 @@ class Tasks extends Component {
        {
             return (
                <tr key={ key }>
-                   <td>
-                       <div className="d-flex align-items-center">
-                           <div className="">
-                               <h6 className="m-b-0 font-16 subject"><Link  to={{ pathname:`/task/${item.subject}`, state: { item:item } }} className="nav-link"> {item.subject } </Link> </h6>
-                           </div>
-                       </div>
-                   </td>
-                   <td>{ item.fälligAm}</td>
-                   <td>{ item.business_partner}</td>
-                   <td>
-                       <label className="">{ item.task }</label>
-                   </td>
-                   <td>{ item.address }</td>
-                   <td className="operation">
-                       <h5 className="m-b-0"><FontAwesomeIcon className="trash icon" icon="trash" onClick={ ()=>this.deleteItem(key)} /></h5>
-                       <h5 className="m-b-0"><FontAwesomeIcon className="edit icon" icon="edit"  /></h5>
-                   </td>
+
+                       <td>
+                           <Link  to={{ pathname:`/task/${item.id}`, state: { item:item } }} className="nav-link">
+                               <div className="d-flex align-items-center">
+                                   <div className="">
+                                       <h6 className="m-b-0 font-16 subject"> {item.subject }  </h6>
+                                   </div>
+                               </div>
+                           </Link>
+                       </td>
+                       <td>
+                           <Link  to={{ pathname:`/task/${item.id}`, state: { item:item } }} className="nav-link">
+                               { item.fälligAm}
+                           </Link>
+                       </td>
+                       <td>
+                           <Link  to={{ pathname:`/task/${item.id}`, state: { item:item } }} className="nav-link">
+                              { item.business_partner}
+                           </Link>
+                       </td>
+                       <td>
+                           <Link  to={{ pathname:`/task/${item.id}`, state: { item:item } }} className="nav-link">
+                              <label className="">{ item.task }</label>
+                           </Link>
+                       </td>
+                       <td>
+                           <Link  to={{ pathname:`/task/${item.id}`, state: { item:item } }} className="nav-link">
+                             { item.address }
+                           </Link>
+                       </td>
+                       <td className="operation">
+                           <h5 className="m-b-0"><FontAwesomeIcon className="trash icon" icon="trash" onClick={ ()=>this.deleteItem(key)} /></h5>
+                           <h5 className="m-b-0"><FontAwesomeIcon className="edit icon" icon="edit"  /></h5>
+                       </td>
                </tr>
             );
         })
         return(
             <div>
                 <div className="filter">
-                    <input   placeholder="search"  onKeyUp={ this.search } id="search"  type="text" className="search"/>
-                    <input   onChange={this.search} type="date" id="date"/>
+                    <input   placeholder="search" name="keyword" value={this.state.form.keyword}  onChange={ this.formValue } id="search"  type="text" className="search"/>
+                    <input   onChange={this.formValue} name="date" value={this.state.form.date} type="date" id="date"/>
                 </div>
                 <table className="table v-middle">
                     <thead>
