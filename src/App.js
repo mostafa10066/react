@@ -6,6 +6,8 @@ import Task from './components/Task'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {faTrash} from '@fortawesome/free-solid-svg-icons'
 import {faEdit} from '@fortawesome/free-solid-svg-icons'
+import bootstrap from 'bootstrap'
+import jquery from 'jquery'
 import { BrowserRouter as Router,Switch, Route } from 'react-router-dom'
 library.add(faTrash)
 library.add(faEdit)

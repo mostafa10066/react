@@ -31,9 +31,15 @@ class Tasks extends Component {
     }
     formValue=(e)=>{
         e.persist();
+        if(e.target.name==='reset'){
+            this.setState((item)=>{
+                item.form.date=''
+            })
+        }
         this.setState((prevState) => ({
             form: { ...prevState.form,  [e.target.name]: e.target.value },
         }),this.search)
+
     }
     search=()=>{
          let filterVal=this.state.form.date
@@ -101,6 +107,7 @@ class Tasks extends Component {
                 <div className="filter">
                     <input   placeholder="search" name="keyword" value={this.state.form.keyword}  onChange={ this.formValue } id="search"  type="text" className="search"/>
                     <input   onChange={this.formValue} name="date" value={this.state.form.date} type="date" id="date"/>
+                    <button className='btn btn-danger' name="reset" onClick={this.formValue}>Reset</button>
                 </div>
                 <table className="table v-middle">
                     <thead>
